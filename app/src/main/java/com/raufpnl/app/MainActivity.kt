@@ -101,7 +101,7 @@ class MainActivity : Activity() {
                     addView(modelField,LinearLayout.LayoutParams(-1,d(48)).apply{topMargin=d(7)})
                     button(this,"SAVE DEVICE DETAILS"){model=modelField.text.toString().ifBlank{android.os.Build.MODEL};save();toast("Device details saved")}
                     text(this,"Smallest width: $screenWidth dp · Android display density: ${resources.displayMetrics.densityDpi} dpi",12f,muted,false,5)
-                    text(this,"Android ${android.os.Build.VERSION.RELEASE} · ${resources.display?.refreshRate?.toInt()?:60} Hz display",12f,muted,false,5)
+                    text(this,"Android ${android.os.Build.VERSION.RELEASE} · ${windowManager.defaultDisplay.refreshRate.toInt()} Hz display",12f,muted,false,5)
                     val hz=number(this,"Refresh rate (Hz)",refreshRate); val fps=number(this,"Preferred FPS",preferredFps)
                     val fingerPick=Spinner(this@MainActivity).apply { val choices=listOf("2-finger","3-finger","4-finger");adapter=ArrayAdapter(this@MainActivity,android.R.layout.simple_spinner_dropdown_item,choices);setSelection(choices.indexOf(fingers).coerceAtLeast(0));onItemSelectedListener=object:android.widget.AdapterView.OnItemSelectedListener{override fun onNothingSelected(p:android.widget.AdapterView<*>?){};override fun onItemSelected(p:android.widget.AdapterView<*>?,v:android.view.View?,pos:Int,id:Long){fingers=choices[pos];save()}} }
                     addView(fingerPick,LinearLayout.LayoutParams(-1,d(48)).apply{topMargin=d(7)})
