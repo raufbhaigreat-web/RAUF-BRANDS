@@ -1,0 +1,8 @@
+<resources>
+    <style name="LaunchTheme" parent="AppTheme">
+        <item name="android:windowSplashScreenBackground">@color/launch_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_rauf_brands</item>
+        <item name="android:windowSplashScreenAnimationDuration">400</item>
+        <item name="android:postSplashScreenTheme">@style/AppTheme</item>
+    </style>
+</resources>
